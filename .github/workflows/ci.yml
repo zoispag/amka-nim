@@ -18,10 +18,10 @@ jobs:
     - name: Setup nim
       uses: jiro4989/setup-nim-action@v1
       with:
-        nim-version: '1.2.0'
+        nim-version: '1.4.2'
 
     - name: Build
-      run: nimble build -y
+      run: nimble build --verbose -y
 
     - name: Run tests
-      run: nimble test -y
+      run: nimble test --verbose -y
