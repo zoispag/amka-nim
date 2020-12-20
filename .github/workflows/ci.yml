@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup nim
+      uses: jiro4989/setup-nim-action@v1
+      with:
+        nim-version: '1.2.0'
+
+    - name: Build
+      run: nimble build -y
+
+    - name: Run tests
+      run: nimble test -y
