@@ -20,8 +20,5 @@ jobs:
       with:
         nim-version: '1.4.2'
 
-    - name: Build
-      run: nimble build --verbose -y
-
     - name: Run tests
       run: nimble test --verbose -y
